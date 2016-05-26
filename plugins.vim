@@ -28,6 +28,10 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-smooth-scroll'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mhinz/vim-startify'
+Plugin 'ton/vim-bufsurf'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -4,3 +4,7 @@ bundle
 *.swp
 *.swo
 *~
+session
+swap
+undo
+backup
