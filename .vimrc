@@ -1,7 +1,8 @@
 "------------------------------ GENERAL CONFIG ------------------------------"
+"
 
 "Use the latest Vim"
-"set nocompatible
+set nocompatible
 
 "Enable syntax highlighting"
 syntax enable
@@ -60,6 +61,9 @@ set undodir=~/.vim/undo//
 set ssop-=options
 set ssop-=folds
 
+"Open a file read only if a swap file exists"
+autocmd SwapExists * let v:swapchoice = "o"
+
 "------------------------------ SEARCH ------------------------------"
 
 "Highlight searches"
@@ -84,22 +88,16 @@ nmap <C-L> <C-W><C-L>
 
 "------------------------------ VISUALS ------------------------------"
 
-"Jellybeans color scheme config"
-let g:jellybeans_overrides = {
-\    'background': {
-\           'guibg': '1c1c1c',
-\           'ctermbg': 'Black' },
-\    'CursorLine': {
-\           'guibg': 'ffffff',
-\           'ctermbg': 'None'},
-\}
-colorscheme jellybeans
+colorscheme friendly
 
 "MacVim line height"
 set linespace=10
 
 "Change font"
 set guifont=Fira_Code:h14
+
+"Show the cursor line with a different color"
+set cursorline
 
 "Hide left and right scrollbars"
 set guioptions-=l
@@ -114,6 +112,9 @@ set formatoptions-=t
 hi vertsplit guifg=bg guibg=bg
 hi statusline guifg=fg guibg=bg
 
+"Change the vertical separator character to space"
+:set fillchars+=vert:\ 
+
 "Show operator commands (e.g. 'c', 'd', 'y') on the command line as you type them
 set showcmd
 
@@ -123,12 +124,27 @@ set showcmd
 map <Space> <Leader>
 
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
+nmap <Leader>ebp :tabedit ~/.bash_profile<cr>
 nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
+nmap <Leader>ec :tabedit ~/.vim/colors/capo.vim<cr>
 nmap <Leader>pi :so ~/.vim/plugins.vim<cr>:PluginInstall<cr>
 nmap <Leader>s :w!<cr>
 
-"Pressing ESC removes search highlighting"
-nnoremap <silent> <esc> :nohlsearch<cr>
+"===== Buffer Management ====="
+
+"Buffer Previous"
+nmap <Leader>bp :BufSurfBack<cr>
+"Buffer Next"
+nmap <Leader>bn :BufSurfForward<cr>
+"Buffer Back"
+nmap <Leader>bb :b#<cr>
+"Buffer Find"
+nmap <Leader>bf :CtrlPBufTag<cr>
+"Buffer List"
+nmap <Leader>bl :CtrlPBuffer<cr>
+
+"Pressing ENTER removes search highlighting"
+nnoremap <silent> <CR> :noh<CR>
 
 nmap <D-1> :NERDTreeToggle<cr>
 nmap <Leader>f :tag<space>
@@ -140,7 +156,6 @@ vnoremap <Leader>j :m '>+1<CR>gv=gv
 vnoremap <Leader>k :m '<-2<CR>gv=gv
 
 "Resizing Windows"
-nmap <C-v> :vertical resize +5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> - :vertical resize -5<cr>
 
@@ -158,20 +173,13 @@ nmap <Leader>wk <C-w>k
 nmap <Leader>wl <C-w>l
 nmap <Leader>ww <C-w>w
 
-"Open a line below/above the current line without leaving normal mode"
+"Set a custom escape sequence so shift + enter can be used for mappings"
 set <F15>=[27~
 map <F15> <S-CR>
 map! <F15> <S-CR>
-nmap <CR> m`o<esc>``
-nmap <S-CR> m`O<esc>``;
 
 "Add a semicolon to the end of the line"
 nmap \; g_a;<esc>;
-
-"------------------------------ MACROS ------------------------------"
-
-"Assigns a PHP constructor parameter to $this, and adds the corresponding protected variable to the class.
-let @a="yiw/}O$this->pa = $pa;?__construct?^$oprotected $pa;€ýb€ýa/\"€ýb€ýa€ýb€ýa"
 
 "------------------------------ AUTO COMMANDS ------------------------------"
 
@@ -181,24 +189,17 @@ augroup autosourcing
     autocmd BufWritePost .vimrc source %
 augroup END
 
+
 "------------------------------ PLUGINS ------------------------------"
 
 "===== Startify ====="
 let g:startify_change_to_vcs_root = 1
 let g:startify_session_autoload = 0
 let g:startify_session_persistence = 0
-let g:startify_custom_header = ['Welcome to Vim!']
+let g:startify_custom_header = ['  Welcome to Vim!']
 
 "Make Startify play nicely with CtrlP and NERDtree"
 autocmd User Startified setlocal buftype=
-
-"Get NERDtree and Startify working at startup"
-autocmd VimEnter *
-\   if !argc()
-\ |   Startify
-\ |   NERDTree
-\ |   wincmd w
-\ | endif
 
 let g:startify_list_order = [
 \ ['   Sessions'],
@@ -211,25 +212,23 @@ let g:startify_list_order = [
 \ 'bookmarks',
 \ ]
 
-"===== BufSurf ====="
-nmap <Leader>bp :BufSurfBack<cr>
-nmap <Leader>bn :BufSurfForward<cr>
+"===== Vim Toggle Cursor ====="
+let g:togglecursor_leave = "line"
 
 "===== CtrlP ====="
-let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git|log\|tmp$'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results,2'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
 nmap <D-e> :CtrlPBufTag<cr>
 nmap <D-r> :CtrlPMRUFiles<cr>
-nmap <D-t> :CtrlP<cr>
 
 "===== Smooth Scroll ====="
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
-"===== PeepOpen ====="
-nmap <D-p> <Plug>PeepOpen
 
 "===== NERDTree ====="
 let NERDTreeHijackNetrw = 0
@@ -280,8 +279,13 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "Super Tab is being used to get YCM and UltiSnips to play nicely with each other regarding <tab>."
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-"===== Vim Airline ====="
+"===== Airline ====="
 let g:airline_powerline_fonts = 1
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_alt_sep = ''
+let g:airline_section_y = ''
 
 "Disable whitespace detection"
 let g:airline#extensions#whitespace#enabled = 0
@@ -298,6 +302,7 @@ xmap s S
 
 "===== DelimitMate ====="
 let g:delimitMate_expand_cr = 1
+
 "------------------------------ NOTES AND TIPS ------------------------------"
 
 "Press ctrl + ] to jump to definition using ctags"
