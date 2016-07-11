@@ -279,6 +279,9 @@ let g:startify_list_order = [
 \ 'bookmarks',
 \ ]
 
+"===== NERDCommenter ====="
+let g:NERDComToggleComment="<Leader>cc"
+
 "===== DelimitMate ====="
 let g:delimitMate_expand_cr=1
 "Fixes a conflict bug with vim-closetag involving a trailing '>'"

@@ -18,13 +18,23 @@ Plugin 'rking/ag.vim'
 Plugin 'skwp/greplace.vim'
 "Create, edit, and delete surrounding braces"
 Plugin 'tpope/vim-surround'
+"git enhancements"
+Plugin 'tpope/vim-fugitive'
+"Repeat plugin commands using the '.' operator"
+Plugin 'tpope/vim-repeat'
+"Dependency for vim-php-namespace"
 Plugin 'MarcWeber/vim-addon-mw-utils'
+"Dependency for vim-php-namespace"
 Plugin 'tomtom/tlib_vim'
+"Insert 'use' statements automatically in PHP"
 Plugin 'arnaud-lb/vim-php-namespace'
 "Required in tandem with YouCompleteMe to create proper tab autocompletion"
 Plugin 'ervandew/supertab'
+"Fixes PHP PSR coding standards problems"
 Plugin 'stephpy/vim-php-cs-fixer'
+"Dependency for pdv"
 Plugin 'tobyS/vmustache'
+"Documentation generation for PHP"
 Plugin 'tobyS/pdv'
 "Snippet engine"
 Plugin 'SirVer/ultisnips'
@@ -40,8 +50,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
 "Navigate through camelcase/snakecase words"
 Plugin 'bkad/CamelCaseMotion'
-"git enhancements"
-Plugin 'tpope/vim-fugitive'
 "animates page up/down so you can tell where the hell you are"
 Plugin 'terryma/vim-smooth-scroll'
 "Pretty welcome screen"
