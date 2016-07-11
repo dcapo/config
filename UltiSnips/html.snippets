@@ -1,0 +1,68 @@
+snippet html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>${1:Document}</title>
+</head>
+<body>
+	$0
+</body>
+</html>
+endsnippet
+
+snippet scriptsrc "<script src...>"
+<script src="$1"></script>
+endsnippet
+
+snippet script "XHTML <script>"
+<script>
+	$0
+</script>
+endsnippet
+
+snippet div# "<div> with ID"
+<div id="${1:id}">
+	$2
+</div>
+endsnippet
+
+snippet div#. "<div> with ID & class"
+<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</div>
+endsnippet
+
+snippet jquery.js "Pull in jQuery.js"
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"
+		integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+		crossorigin="anonymous">
+</script>
+endsnippet
+
+snippet bootstrap.css "Pull in bootstrap.css"
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+endsnippet
+
+snippet bootstrap.js "Pull in bootstrap.js"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous">
+</script>
+endsnippet
+
+snippet vue.js "Pull in vue.js"
+<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js">
+</script>
+endsnippet
+
+snippet font-awesome.css "Pull in font-awesome.css"
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet"
+	integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+	crossorigin="anonymous">
+endsnippet
