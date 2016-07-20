@@ -9,6 +9,9 @@ syntax enable
 "Enable filetype plugins"
 filetype plugin on
 
+"Enable filetype plugin indentation"
+filetype plugin indent on
+
 "Plugin management can be found here"
 so ~/.vim/plugins.vim
 
@@ -212,6 +215,12 @@ nmap <Leader>; g_a;<esc>
 "Add a comma to the end of the line"
 nmap <Leader>, g_a,<esc>
 
+"===== Fugitive Git ====="
+nnoremap <Leader>gaa :Git add --all<cr>
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gc :Gcommit<cr>
+nnoremap <Leader>gd :Gdiff<cr>
+
 "------------------------------ AUTO COMMANDS ------------------------------"
 
 "Source the .vimrc file on write"
@@ -280,7 +289,10 @@ let g:startify_list_order = [
 \ ]
 
 "===== NERDCommenter ====="
-let g:NERDComToggleComment="<Leader>cc"
+let g:NERDCreateDefaultMappings=0
+map <Leader>cc <plug>NERDCommenterToggle
+map <Leader>c$ <plug>NERDCommenterToEOL
+map <Leader>cs <plug>NERDCommenterSexy
 
 "===== DelimitMate ====="
 let g:delimitMate_expand_cr=1

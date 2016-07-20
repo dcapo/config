@@ -28,10 +28,8 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 "Insert 'use' statements automatically in PHP"
 Plugin 'arnaud-lb/vim-php-namespace'
-"Required in tandem with YouCompleteMe to create proper tab autocompletion"
+"Required to get YCM to play nicely with UltiSnips"
 Plugin 'ervandew/supertab'
-"Fixes PHP PSR coding standards problems"
-Plugin 'stephpy/vim-php-cs-fixer'
 "Dependency for pdv"
 Plugin 'tobyS/vmustache'
 "Documentation generation for PHP"
@@ -46,7 +44,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 "A huge reference collection of snippets for many languages"
 Plugin 'honza/vim-snippets'
-"Mappings to quickly comment/uncomment lines"
+"Quickly comment/uncomment lines"
 Plugin 'scrooloose/nerdcommenter'
 "Navigate through camelcase/snakecase words"
 Plugin 'bkad/CamelCaseMotion'
