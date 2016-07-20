@@ -72,6 +72,8 @@ Plugin 'edsono/vim-matchit'
 Plugin 'craigemery/vim-autotag'
 "A large library of language syntax improvements"
 Plugin 'sheerun/vim-polyglot'
+"My color scheme"
+Plugin 'dcapo/friendly-colors'
 
 call vundle#end()
 filetype plugin indent on
