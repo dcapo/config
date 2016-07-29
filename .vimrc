@@ -122,6 +122,12 @@ set showtabline=1
 set guitablabel=%N\ \ %t
 "set tabline=%N\ %t
 
+"Scroll one column when the cursor is moved off the screen horizontally."
+set sidescroll=1
+
+"Keep at least two columns visible on both sides of the cursor at all times."
+set sidescrolloff=2
+
 "Change the vertical separator character to space"
 :set fillchars+=vert:\ 
 
