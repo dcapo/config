@@ -40,8 +40,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'vim-airline/vim-airline'
 "Themes for the Airline status bar"
 Plugin 'vim-airline/vim-airline-themes'
-"Tab autocomplete"
-Plugin 'Valloric/YouCompleteMe'
+"Autocompletion"
+Plugin 'Shougo/neocomplete.vim'
 "A huge reference collection of snippets for many languages"
 Plugin 'honza/vim-snippets'
 "Quickly comment/uncomment lines"

@@ -131,9 +131,10 @@ set sidescrolloff=2
 "Change the vertical separator character to space"
 :set fillchars+=vert:\ 
 
-"Show operator commands (e.g. 'c', 'd', 'y') on the command line as you type them
+"Show operator commands (e.g. 'c', 'd', 'y') on the command line as you type them"
 set showcmd
 
+"Press F10 to reveal syntax highlighting rules for the word under the cursor"
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -368,9 +369,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"===== You Complete Me ====="
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"===== Neocomplete ====="
+let g:neocomplete#enable_at_startup = 1
 
 "===== Super Tab ====="
 "Super Tab is being used to get YCM and UltiSnips to play nicely with each other regarding <tab>."
@@ -378,10 +378,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 "===== Airline ====="
 let g:airline_powerline_fonts = 1
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_alt_sep = ''
 let g:airline_section_y = ''
 
 "Disable whitespace detection"
@@ -400,6 +396,5 @@ xmap s S
 "------------------------------ NOTES AND TIPS ------------------------------"
 
 "Press ctrl + ] to jump to definition using ctags"
-"Press ',' + 'u' to insert a use statement for the class under the cursor"
-"Press ',' + 'nf' to expand the class to its fully-qualified version"
-
+"Press <Leader> + 'u' to insert a use statement for the class under the cursor"
+"Press <Leader> + 'nf' to expand the class to its fully-qualified version"
