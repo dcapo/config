@@ -371,6 +371,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "===== Neocomplete ====="
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#max_list = 10
 
 "===== Super Tab ====="
 "Super Tab is being used to get YCM and UltiSnips to play nicely with each other regarding <tab>."

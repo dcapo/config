@@ -28,7 +28,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 "Insert 'use' statements automatically in PHP"
 Plugin 'arnaud-lb/vim-php-namespace'
-"Required to get YCM to play nicely with UltiSnips"
+"Get Neocomplete to play nicely with UltiSnips regarding tab autocompletion"
 Plugin 'ervandew/supertab'
 "Dependency for pdv"
 Plugin 'tobyS/vmustache'
