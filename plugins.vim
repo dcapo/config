@@ -74,6 +74,8 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'sheerun/vim-polyglot'
 "My color scheme"
 Plugin 'dcapo/friendly-colors'
+"Create a sub mode for faster scrolling"
+Plugin 'kana/vim-submode'
 
 call vundle#end()
 filetype plugin indent on

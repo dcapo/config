@@ -16,3 +16,15 @@ snippet chai "Chai Expect and Should"
 var expect = require('chai').expect;
 var should = require('chai').should();
 endsnippet
+
+snippet it "Mocha it() test"
+it("$1", function() {
+	$2
+});
+endsnippet
+
+snippet desc "Mocha describe() block"
+describe("$1", function() {
+	$2
+});
+endsnippet

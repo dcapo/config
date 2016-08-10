@@ -72,6 +72,12 @@ set ssop-=folds
 "Open a file read only if a swap file exists"
 autocmd SwapExists * let v:swapchoice = "o"
 
+"Fast terminal connection"
+set ttyfast
+
+"Lazy redraw"
+set lazyredraw
+
 "------------------------------ SEARCH ------------------------------"
 
 "Highlight searches"
@@ -324,10 +330,24 @@ nmap <D-e> :CtrlPBufTag<cr>
 nmap <D-r> :CtrlPMRUFiles<cr>
 
 "===== Smooth Scroll ====="
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+"===== Vim Submode ====="
+let g:submode_always_show_submode = 1
+let g:submode_timeout = 0
+
+function! LoadScrollMode()
+	call submode#enter_with('Scroll', 'n', '', 'gs')
+	call submode#map('Scroll', 'n', 's', 'u', ':call smooth_scroll#up(&scroll, 0, 4)<CR>')
+    call submode#map('Scroll', 'n', 's', 'd', ':call smooth_scroll#down(&scroll, 0, 4)<CR>')
+	call submode#map('Scroll', 'n', 's', 'b', ':call smooth_scroll#up(&scroll*2, 0, 4)<CR>')
+	call submode#map('Scroll', 'n', 's', 'f', ':call smooth_scroll#down(&scroll*2, 0, 4)<CR>')
+endfunction
+
+call LoadScrollMode()
 
 "===== NERDTree ====="
 let NERDTreeHijackNetrw = 0
