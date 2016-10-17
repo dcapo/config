@@ -1,3 +1,5 @@
+extends javascript, css
+
 snippet html
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,22 @@ snippet html
 	$0
 </body>
 </html>
+endsnippet
+
+snippet vueify "Pull in the vue skeleton"
+<template>
+
+</template>
+
+<script>
+	export default {
+
+	};
+</script>
+
+<style>
+
+</style>
 endsnippet
 
 snippet scriptsrc "<script src...>"
@@ -33,24 +51,22 @@ snippet div#. "<div> with ID & class"
 </div>
 endsnippet
 
+snippet link "barebones stylesheet <link>"
+<link rel="stylesheet" href="$0">
+endsnippet
+
 snippet jquery.js "Pull in jQuery.js"
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"
-		integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
-		crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.0.0.min.js">
 </script>
 endsnippet
 
 snippet bootstrap.css "Pull in bootstrap.css"
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
+	rel="stylesheet">
 endsnippet
 
 snippet bootstrap.js "Pull in bootstrap.js"
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 </script>
 endsnippet
 
@@ -60,9 +76,12 @@ snippet vue.js "Pull in vue.js"
 </script>
 endsnippet
 
+snippet bulma.css "Pull in bulma.css"
+<link rel="stylesheet" 
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.0/css/bulma.css" />
+endsnippet
+
 snippet font-awesome.css "Pull in font-awesome.css"
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-	rel="stylesheet"
-	integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
-	crossorigin="anonymous">
+	rel="stylesheet">
 endsnippet

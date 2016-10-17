@@ -13,18 +13,18 @@ for (let ${1:i} = 0; $1 < ${2:length}; $1++) {
 endsnippet
 
 snippet chai "Chai Expect and Should"
-var expect = require('chai').expect;
-var should = require('chai').should();
+const expect = require('chai').expect;
+const should = require('chai').should();
 endsnippet
 
 snippet it "Mocha it() test"
-it("$1", function() {
+it('$1', function() {
 	$2
 });
 endsnippet
 
 snippet desc "Mocha describe() block"
-describe("$1", function() {
+describe('$1', function() {
 	$2
 });
 endsnippet

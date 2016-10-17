@@ -76,6 +76,20 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'dcapo/friendly-colors'
 "Create a sub mode for faster scrolling"
 Plugin 'kana/vim-submode'
+"Convert between case types; handle weird english pluralization suffixes"
+Plugin 'tpope/vim-abolish'
+"Enhanced syntax highlighting for Neo4j's Cypher"
+Plugin 'neo4j-contrib/cypher-vim-syntax'
+"Pasting with indentation adjusted to destination context"
+Plugin 'sickill/vim-pasta'
+"Highlight and/or erase bad whitespace at the end of lines"
+Plugin 'bitc/vim-bad-whitespace'
+"Quick navigation using two character search strings"
+Plugin 'justinmk/vim-sneak'
+"Move selected text around sensibly"
+Plugin 'zirrostig/vim-schlepp'
+"Easy motion"
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on

@@ -27,6 +27,9 @@ set backspace=indent,eol,start
 "Include line numbers"
 set number
 
+"The :substitute flag 'g' is on by default"
+set gdefault
+
 "Line numbers are displayed relative to the current line"
 set relativenumber
 
@@ -108,7 +111,7 @@ colorscheme friendly
 set linespace=8
 
 "Change font"
-set guifont=Fira_Code:h14
+set guifont=Fira_Code:h13
 
 "Show the cursor line with a different color"
 set cursorline
@@ -135,7 +138,7 @@ set sidescroll=1
 set sidescrolloff=2
 
 "Change the vertical separator character to space"
-:set fillchars+=vert:\ 
+:set fillchars+=vert:\
 
 "Show operator commands (e.g. 'c', 'd', 'y') on the command line as you type them"
 set showcmd
@@ -150,16 +153,41 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 "Use Space as the Leader key"
 map <Space> <Leader>
 
+"Edit important config files"
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader>ebp :tabedit ~/.bash_profile<cr>
 nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
 nmap <Leader>ec :tabedit ~/developer/friendly/colors/friendly.vim<cr>
 nmap <Leader>es :UltiSnipsEdit<cr>
+
+"Install/Update plugins"
 nmap <Leader>pi :so ~/.vim/plugins.vim<cr>:PluginInstall<cr>
 nmap <Leader>pu :so ~/.vim/plugins.vim<cr>:PluginUpdate<cr>
+
+"Quicker save/quit"
 nmap <Leader>w :w!<cr>
 nmap <Leader>q :q<cr>
+
+"Auto indent on paste"
+:nnoremap p p=`]
+:nnoremap <c-p> p
+
+"(r)eplace in file"
 nmap <Leader>r :%s/
+
+"Preserve visual mode selection when doing indents / yanks"
+vnoremap < <gv
+vnoremap > >gv
+vnoremap y ygv
+
+"----- Scrolling -----"
+nmap H zhzhzh
+nmap J <c-d>
+nmap K <c-u>
+nmap L zlzlzl
+
+"Remap the (J)oin lines command to (M)erge
+nnoremap M J
 
 "===== Buffer Management ====="
 
@@ -184,9 +212,15 @@ nmap <Leader>bw <C-w>w
 nmap <Leader>bo <C-w>o
 nmap <Leader>b= <C-w>=
 
-
-"Pressing ENTER removes search highlighting"
+"Pressing ESC / ENTER removes search highlighting"
 nnoremap <silent> <CR> :noh<CR>
+if has('gui_running')
+  nnoremap <silent> <esc> :nohlsearch<return><esc>
+else
+  augroup no_highlight
+    autocmd TermResponse * nnoremap <esc> :noh<return><esc>
+  augroup END
+end
 
 "Open / Close NERDTree"
 nmap <Leader>nt :NERDTreeToggle<cr>
@@ -247,7 +281,7 @@ augroup END
 command! Prose inoremap <buffer> . .<C-G>u|
             \ inoremap <buffer> ! !<C-G>u|
             \ inoremap <buffer> ? ?<C-G>u|
-            \ setlocal textwidth=90 formatoptions=want2 whichwrap=b,s,h,l,<,>,[,] nojoinspaces noautoindent nocindent nosmartindent|
+            \ setlocal textwidth=80 formatoptions=want2 whichwrap=b,s,h,l,<,>,[,] nojoinspaces noautoindent nocindent nosmartindent|
 
 command! Code silent! iunmap <buffer> .|
             \ silent! iunmap <buffer> !|
@@ -267,12 +301,12 @@ command! -range=% SoftWrap
             \ <line1>,<line2>g/.\+/ .;-/^$/ join |normal $x
 
 "------------------------------ FUNCTIONS ------------------------------"
-nnoremap <Leader>R :call RefreshAll()<cr>
+nnoremap <silent> <Leader>R :call RefreshAll()<cr>
 function! RefreshAll()
     CtrlPClearCache
     if g:NERDTree.IsOpen()
         call g:NERDTree.CursorToTreeWin()
-        call g:NERDTreeKeyMap.Invoke('R')
+        silent call g:NERDTreeKeyMap.Invoke('R')
         " Go back to previous window.
         wincmd p
     endif
@@ -317,6 +351,11 @@ au FileType xml,html,phtml,php,xhtml,js,vue let b:delimitMate_matchpairs = "(:),
 "Fixes a conflict bug with delimitMate involving a trailing '>'"
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.php,*.vue"
 
+"===== Vim Vue ====="
+
+"Use HTML indentation rules for .vue files"
+au BufRead,BufNewFile *.vue set filetype=html
+
 "===== Vim Toggle Cursor ====="
 let g:togglecursor_leave="line"
 
@@ -324,6 +363,7 @@ let g:togglecursor_leave="line"
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|log\|tmp\|\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results,2'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_root_markers = ['.git', '.hg', '.svn', '.vim_project']
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 nmap <D-e> :CtrlPBufTag<cr>
@@ -335,22 +375,25 @@ noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-"===== Vim Submode ====="
+"===== Vim Submode (Scroll Mode) ====="
 let g:submode_always_show_submode = 1
 let g:submode_timeout = 0
 
 function! LoadScrollMode()
-	call submode#enter_with('Scroll', 'n', '', 'gs')
-	call submode#map('Scroll', 'n', 's', 'u', ':call smooth_scroll#up(&scroll, 0, 4)<CR>')
-    call submode#map('Scroll', 'n', 's', 'd', ':call smooth_scroll#down(&scroll, 0, 4)<CR>')
-	call submode#map('Scroll', 'n', 's', 'b', ':call smooth_scroll#up(&scroll*2, 0, 4)<CR>')
-	call submode#map('Scroll', 'n', 's', 'f', ':call smooth_scroll#down(&scroll*2, 0, 4)<CR>')
+	call submode#enter_with('Scroll', 'n', '', 's')
+	call submode#map('Scroll', 'n', 's', 'K', ':call smooth_scroll#up(&scroll, 0, 4)<CR>')
+    call submode#map('Scroll', 'n', 's', 'J', ':call smooth_scroll#down(&scroll, 0, 4)<CR>')
+    call submode#map('Scroll', 'n', 's', 'j', '<C-e>')
+    call submode#map('Scroll', 'n', 's', 'k', '<C-y>')
+    call submode#map('Scroll', 'n', 's', 'l', 'zlzlzl')
+    call submode#map('Scroll', 'n', 's', 'h', 'zhzhzh')
 endfunction
 
 call LoadScrollMode()
 
 "===== NERDTree ====="
 let NERDTreeHijackNetrw = 0
+let NERDTreeShowHidden = 1
 
 "===== GReplace ====="
 set grepprg=ag						"We want to use Ag for searching"
@@ -381,7 +424,7 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 
 "===== PDV ====="
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates"
-nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+nnoremap <leader>pdv :call pdv#DocumentWithSnip()<CR>
 
 "===== UltiSnips ====="
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
@@ -413,6 +456,32 @@ call camelcasemotion#CreateMotionMappings('<Leader>c')
 "===== Vim Surround ====="
 "Use 's' instead of 'S' in visual mode"
 xmap s S
+
+"===== Vim Bad Whitespace ====="
+
+"(e)rase (b)ad (w)hitespace"
+nmap <silent> <Leader>ebw :EraseBadWhitespace<cr>
+
+"alias: (d)elete (b)ad (w)hitespace"
+nmap <silent> <Leader>dbw :EraseBadWhitespace<cr>
+
+"(t)oggle (b)ad (w)hitespace"
+nmap <silent> <Leader>tbw :ToggleBadWhitespace<cr>
+
+"===== Vim Schlepp ====="
+"vmap <unique> <up>    <Plug>SchleppUp
+"vmap <unique> <down>  <Plug>SchleppDown
+"vmap <unique> <left>  <Plug>SchleppLeft
+"vmap <unique> <right> <Plug>SchleppRight
+
+"===== Vim Sneak ====="
+let g:sneak#streak = 1
+
+"===== Vim Easy Motion ====="
+"nmap s <Plug>(easymotion-s2)
+"nmap t <Plug>(easymotion-t2)
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
 
 "------------------------------ NOTES AND TIPS ------------------------------"
 
