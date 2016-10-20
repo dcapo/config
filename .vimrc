@@ -111,7 +111,7 @@ colorscheme friendly
 set linespace=8
 
 "Change font"
-set guifont=Fira_Code:h13
+set guifont=Fira_Code:h15
 
 "Show the cursor line with a different color"
 set cursorline
@@ -394,10 +394,8 @@ call LoadScrollMode()
 "===== NERDTree ====="
 let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
-
-"===== GReplace ====="
-set grepprg=ag						"We want to use Ag for searching"
-let g:grep_cmd_opts = '--line-numbers --noheading'
+let NERDTreeMapJumpLastChild = '<Leader>j'
+let NERDTreeMapJumpFirstChild = '<Leader>k'
 
 "===== PHP Namespace ====="
 function! IPhpInsertUse()
@@ -482,6 +480,10 @@ let g:sneak#streak = 1
 "nmap t <Plug>(easymotion-t2)
 "map  / <Plug>(easymotion-sn)
 "omap / <Plug>(easymotion-tn)
+
+"------------------------------ THUMBTACK ------------------------------"
+so ~/.vim/thumbtack.vim
+
 
 "------------------------------ NOTES AND TIPS ------------------------------"
 

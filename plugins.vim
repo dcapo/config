@@ -12,10 +12,6 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdtree'
 "Quick file/buffer/tag search"
 Plugin 'ctrlpvim/ctrlp.vim'
-"An alternative to grep for find/replace"
-Plugin 'rking/ag.vim'
-"Find and replace in project"
-Plugin 'skwp/greplace.vim'
 "Create, edit, and delete surrounding braces"
 Plugin 'tpope/vim-surround'
 "git enhancements"
@@ -60,7 +56,7 @@ Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'Raimondi/delimitMate'
 "Close HTML tags automatically"
 Plugin 'alvan/vim-closetag'
-"Enhanced syntax highlighting for javascript"
+"Enhanced syntax highlighting for JavaScript"
 Plugin 'jelera/vim-javascript-syntax'
 "Enhanced syntax highlighting for php"
 Plugin 'StanAngeloff/php.vim'
@@ -90,6 +86,10 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'zirrostig/vim-schlepp'
 "Easy motion"
 Plugin 'easymotion/vim-easymotion'
+"Syntax highlighting for Twig"
+Plugin 'lumiliet/vim-twig'
+"Ack search tool"
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 filetype plugin indent on
