@@ -180,6 +180,17 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap y ygv
 
+"Ack"
+nnoremap <Leader>a :Ack!<Space>
+
+"----- Quick Fix -----"
+nmap <Leader>cn :cnext<cr>
+nmap <Leader>cp :cprevious<cr>
+nmap <Leader>cf :cfirst<cr>
+nmap <Leader>cl :clast<cr>
+nmap <Leader>co :copen<cr>
+nmap <Leader>cq :cclose<cr>
+
 "----- Scrolling -----"
 nmap H zhzhzh
 nmap J <c-d>
@@ -197,10 +208,6 @@ nmap <Leader>bp :BufSurfBack<cr>
 nmap <Leader>bn :BufSurfForward<cr>
 "Buffer Back"
 nmap <Leader>bb :b#<cr>
-"Buffer Find"
-nmap <Leader>bf :CtrlPBufTag<cr>
-"Buffer List"
-nmap <Leader>bl :CtrlPBuffer<cr>
 "Buffer Delete"
 nmap <Leader>bd :bd<cr>
 "Moving between buffers"
@@ -212,8 +219,7 @@ nmap <Leader>bw <C-w>w
 nmap <Leader>bo <C-w>o
 nmap <Leader>b= <C-w>=
 
-"Pressing ESC / ENTER removes search highlighting"
-nnoremap <silent> <CR> :noh<CR>
+"Pressing ESC removes search highlighting"
 if has('gui_running')
   nnoremap <silent> <esc> :nohlsearch<return><esc>
 else
@@ -229,7 +235,7 @@ nmap <Leader>nt :NERDTreeToggle<cr>
 nmap <Leader>nf :NERDTreeFind<cr>
 
 "(O)pen files/buffers in the project"
-nmap <Leader>o :CtrlP<cr>
+nmap <Leader>o :CommandT<cr>
 
 "Search for (t)ags in the project"
 nmap <Leader>t :CtrlPTag<cr>
@@ -343,13 +349,12 @@ map <Leader>cs <plug>NERDCommenterSexy
 
 "===== DelimitMate ====="
 let g:delimitMate_expand_cr=1
-"Fixes a conflict bug with vim-closetag involving a trailing '>'"
-au FileType xml,html,phtml,php,xhtml,js,vue let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 "===== Vim Close Tag ====="
 
 "Fixes a conflict bug with delimitMate involving a trailing '>'"
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.php,*.vue"
+au FileType xml,html,phtml,php,xhtml,js,vue let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 "===== Vim Vue ====="
 
@@ -368,6 +373,11 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 nmap <D-e> :CtrlPBufTag<cr>
 nmap <D-r> :CtrlPMRUFiles<cr>
+
+"===== CommandT ====="
+let g:CommandTFileScanner = 'git'
+let g:CommandTMaxFiles=100000
+
 
 "===== Smooth Scroll ====="
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
@@ -460,9 +470,6 @@ xmap s S
 "(e)rase (b)ad (w)hitespace"
 nmap <silent> <Leader>ebw :EraseBadWhitespace<cr>
 
-"alias: (d)elete (b)ad (w)hitespace"
-nmap <silent> <Leader>dbw :EraseBadWhitespace<cr>
-
 "(t)oggle (b)ad (w)hitespace"
 nmap <silent> <Leader>tbw :ToggleBadWhitespace<cr>
 
@@ -475,15 +482,53 @@ nmap <silent> <Leader>tbw :ToggleBadWhitespace<cr>
 "===== Vim Sneak ====="
 let g:sneak#streak = 1
 
+"===== Ag ====="
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 "===== Vim Easy Motion ====="
 "nmap s <Plug>(easymotion-s2)
 "nmap t <Plug>(easymotion-t2)
 "map  / <Plug>(easymotion-sn)
 "omap / <Plug>(easymotion-tn)
 
+"===== Syntastic ====="
+"let g:syntastic_javascript_checkers = ['eslint']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+
+"let g:syntastic_error_symbol = '❌'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_warning_symbol = '💩'
+
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
+
 "------------------------------ THUMBTACK ------------------------------"
 so ~/.vim/thumbtack.vim
 
+"===== Vdebug ====="
+let g:vdebug_options = {"path_maps" : {"/srv/thumbtack/code/": "/Users/dcapo/Thumbtack/website/"}}
+nmap <Leader>dr <F5> "(d)ebugger (r)un"
+nmap <Leader>dc <F5> "(d)ebugger (c)ontinue"
+nmap <Leader>dso <F2> "(d)ebugger (s)tep (o)ver"
+nmap <Leader>dsi <F3> "(d)ebugger (s)tep (i)nto"
+nmap <Leader>dso <F4> "(d)ebugger (s)tep (o)ut"
+nmap <Leader>dq <F6> "(d)ebugger (q)uit"
+nmap <Leader>dt <F10> "(d)ebugger (t)oggle breakpoint"
+nmap <silent> <Leader>db :Breakpoint<cr>
+nmap <Leader>de :VdebugEval<Space>
 
 "------------------------------ NOTES AND TIPS ------------------------------"
 

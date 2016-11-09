@@ -90,6 +90,14 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'lumiliet/vim-twig'
 "Ack search tool"
 Plugin 'mileszs/ack.vim'
+"Complementary pairs of mappings"
+Plugin 'tpope/vim-unimpaired'
+"Debugging PHP"
+Plugin 'joonty/vdebug'
+"Syntax checking"
+"Plugin 'scrooloose/syntastic'
+"File Launching"
+Plugin 'wincent/command-t'
 
 call vundle#end()
 filetype plugin indent on
