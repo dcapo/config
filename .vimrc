@@ -237,9 +237,6 @@ nmap <Leader>nf :NERDTreeFind<cr>
 "(O)pen files/buffers in the project"
 nmap <Leader>o :CommandT<cr>
 
-"Search for (t)ags in the project"
-nmap <Leader>t :CtrlPTag<cr>
-
 "Move (L)ines Around"
 nnoremap <Leader>lj :m .+1<CR>==
 nnoremap <Leader>lk :m .-2<CR>==
@@ -309,7 +306,7 @@ command! -range=% SoftWrap
 "------------------------------ FUNCTIONS ------------------------------"
 nnoremap <silent> <Leader>R :call RefreshAll()<cr>
 function! RefreshAll()
-    CtrlPClearCache
+    CommandTFlush
     if g:NERDTree.IsOpen()
         call g:NERDTree.CursorToTreeWin()
         silent call g:NERDTreeKeyMap.Invoke('R')
@@ -327,7 +324,7 @@ let g:startify_session_autoload = 0
 let g:startify_session_persistence = 0
 let g:startify_custom_header = ['  Welcome to Vim!']
 
-"Make Startify play nicely with CtrlP and NERDtree"
+"Make Startify play nicely with NERDtree"
 autocmd User Startified setlocal buftype=
 
 let g:startify_list_order = [
@@ -364,20 +361,9 @@ au BufRead,BufNewFile *.vue set filetype=html
 "===== Vim Toggle Cursor ====="
 let g:togglecursor_leave="line"
 
-"===== CtrlP ====="
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|log\|tmp\|\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results,2'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_root_markers = ['.git', '.hg', '.svn', '.vim_project']
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
-nmap <D-e> :CtrlPBufTag<cr>
-nmap <D-r> :CtrlPMRUFiles<cr>
-
 "===== CommandT ====="
 let g:CommandTFileScanner = 'git'
 let g:CommandTMaxFiles=100000
-
 
 "===== Smooth Scroll ====="
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
@@ -406,33 +392,6 @@ let NERDTreeHijackNetrw = 0
 let NERDTreeShowHidden = 1
 let NERDTreeMapJumpLastChild = '<Leader>j'
 let NERDTreeMapJumpFirstChild = '<Leader>k'
-
-"===== PHP Namespace ====="
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
-
-"===== PHP-CS-Fixer ====="
-let g:php_cs_fixer_level = 'psr2'
-
-"Disable the mapping by default (<leader>pcd)"
-let g:php_cs_fixer_enable_default_mapping = 0
-
-nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
-
-"===== PDV ====="
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates"
-nnoremap <leader>pdv :call pdv#DocumentWithSnip()<CR>
 
 "===== UltiSnips ====="
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"

@@ -10,26 +10,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-vinegar'
 "Left project drawer"
 Plugin 'scrooloose/nerdtree'
-"Quick file/buffer/tag search"
-Plugin 'ctrlpvim/ctrlp.vim'
 "Create, edit, and delete surrounding braces"
 Plugin 'tpope/vim-surround'
 "git enhancements"
 Plugin 'tpope/vim-fugitive'
 "Repeat plugin commands using the '.' operator"
 Plugin 'tpope/vim-repeat'
-"Dependency for vim-php-namespace"
-Plugin 'MarcWeber/vim-addon-mw-utils'
-"Dependency for vim-php-namespace"
-Plugin 'tomtom/tlib_vim'
-"Insert 'use' statements automatically in PHP"
-Plugin 'arnaud-lb/vim-php-namespace'
 "Get Neocomplete to play nicely with UltiSnips regarding tab autocompletion"
 Plugin 'ervandew/supertab'
 "Dependency for pdv"
 Plugin 'tobyS/vmustache'
-"Documentation generation for PHP"
-Plugin 'tobyS/pdv'
 "Snippet engine"
 Plugin 'SirVer/ultisnips'
 "A fancy status bar"
@@ -95,8 +85,8 @@ Plugin 'tpope/vim-unimpaired'
 "Debugging PHP"
 Plugin 'joonty/vdebug'
 "Syntax checking"
-"Plugin 'scrooloose/syntastic'
-"File Launching"
+Plugin 'scrooloose/syntastic'
+"Quick file launching"
 Plugin 'wincent/command-t'
 
 call vundle#end()
