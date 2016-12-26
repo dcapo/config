@@ -237,12 +237,6 @@ nmap <Leader>nf :NERDTreeFind<cr>
 "(O)pen files/buffers in the project"
 nmap <Leader>o :CommandT<cr>
 
-"Move (L)ines Around"
-nnoremap <Leader>lj :m .+1<CR>==
-nnoremap <Leader>lk :m .-2<CR>==
-vnoremap <Leader>lj :m '>+1<CR>gv=gv
-vnoremap <Leader>lk :m '<-2<CR>gv=gv
-
 "Resizing Windows"
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> _ :vertical resize -5<cr>
@@ -464,6 +458,10 @@ omap F <Plug>(easymotion-bd-f2)
 nmap T <Plug>(easymotion-bd-t2)
 xmap T <Plug>(easymotion-bd-t2)
 omap T <Plug>(easymotion-bd-t2)
+
+"Replace '/' with the easymotion variant"
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 "------------------------------ THUMBTACK ------------------------------"
 so ~/.vim/thumbtack.vim
