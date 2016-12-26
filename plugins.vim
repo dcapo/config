@@ -18,8 +18,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 "Get Neocomplete to play nicely with UltiSnips regarding tab autocompletion"
 Plugin 'ervandew/supertab'
-"Dependency for pdv"
-Plugin 'tobyS/vmustache'
 "Snippet engine"
 Plugin 'SirVer/ultisnips'
 "A fancy status bar"
@@ -80,12 +78,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'lumiliet/vim-twig'
 "Ack search tool"
 Plugin 'mileszs/ack.vim'
-"Complementary pairs of mappings"
-Plugin 'tpope/vim-unimpaired'
 "Debugging PHP"
 Plugin 'joonty/vdebug'
-"Syntax checking"
-Plugin 'scrooloose/syntastic'
 "Quick file launching"
 Plugin 'wincent/command-t'
 

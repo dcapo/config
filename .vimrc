@@ -111,7 +111,7 @@ colorscheme friendly
 set linespace=8
 
 "Change font"
-set guifont=Fira_Code:h15
+set guifont=Fira_Code:h13
 
 "Show the cursor line with a different color"
 set cursorline
@@ -157,7 +157,7 @@ map <Space> <Leader>
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 nmap <Leader>ebp :tabedit ~/.bash_profile<cr>
 nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
-nmap <Leader>ec :tabedit ~/developer/friendly/colors/friendly.vim<cr>
+nmap <Leader>ec :tabedit ~/developer/friendly-colors/colors/friendly.vim<cr>
 nmap <Leader>es :UltiSnipsEdit<cr>
 
 "Install/Update plugins"
@@ -351,7 +351,7 @@ let g:delimitMate_expand_cr=1
 
 "Fixes a conflict bug with delimitMate involving a trailing '>'"
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.php,*.vue"
-au FileType xml,html,phtml,php,xhtml,js,vue let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType xml,html,phtml,php,xhtml,js,vue,htmldjango let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 "===== Vim Vue ====="
 
@@ -368,6 +368,7 @@ let g:CommandTMaxFiles=100000
 "===== Smooth Scroll ====="
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
 noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+
 noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
@@ -379,8 +380,10 @@ function! LoadScrollMode()
 	call submode#enter_with('Scroll', 'n', '', 's')
 	call submode#map('Scroll', 'n', 's', 'K', ':call smooth_scroll#up(&scroll, 0, 4)<CR>')
     call submode#map('Scroll', 'n', 's', 'J', ':call smooth_scroll#down(&scroll, 0, 4)<CR>')
-    call submode#map('Scroll', 'n', 's', 'j', '<C-e>')
-    call submode#map('Scroll', 'n', 's', 'k', '<C-y>')
+    call submode#map('Scroll', 'n', 's', 'j', '<C-e><C-e><C-e>')
+    call submode#map('Scroll', 'n', 's', 'k', '<C-y><C-y><C-y>')
+    call submode#map('Scroll', 'n', 's', 'e', '<C-e>')
+    call submode#map('Scroll', 'n', 's', 'y', '<C-y>')
     call submode#map('Scroll', 'n', 's', 'l', 'zlzlzl')
     call submode#map('Scroll', 'n', 's', 'h', 'zhzhzh')
 endfunction
@@ -430,16 +433,14 @@ xmap s S
 nmap <silent> <Leader>ebw :EraseBadWhitespace<cr>
 
 "(t)oggle (b)ad (w)hitespace"
+
 nmap <silent> <Leader>tbw :ToggleBadWhitespace<cr>
 
 "===== Vim Schlepp ====="
-"vmap <unique> <up>    <Plug>SchleppUp
-"vmap <unique> <down>  <Plug>SchleppDown
-"vmap <unique> <left>  <Plug>SchleppLeft
-"vmap <unique> <right> <Plug>SchleppRight
-
-"===== Vim Sneak ====="
-let g:sneak#streak = 1
+vmap <up> <Plug>SchleppUp
+vmap <down> <Plug>SchleppDown
+vmap <left> <Plug>SchleppLeft
+vmap <right> <Plug>SchleppRight
 
 "===== Ag ====="
 if executable('ag')
@@ -447,32 +448,22 @@ if executable('ag')
 endif
 
 "===== Vim Easy Motion ====="
-"nmap s <Plug>(easymotion-s2)
-"nmap t <Plug>(easymotion-t2)
-"map  / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
 
-"===== Syntastic ====="
-"let g:syntastic_javascript_checkers = ['eslint']
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+"Replace 'f' and 't' with bidirectional 1-character search"
+nmap f <Plug>(easymotion-bd-fl)
+vmap f <Plug>(easymotion-bd-fl)
+omap f <Plug>(easymotion-bd-fl)
+nmap t <Plug>(easymotion-bd-tl)
+vmap t <Plug>(easymotion-bd-tl)
+omap t <Plug>(easymotion-bd-tl)
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_loc_list_height = 5
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 1
-
-"let g:syntastic_error_symbol = '❌'
-"let g:syntastic_style_error_symbol = '⁉️'
-"let g:syntastic_warning_symbol = '⚠️'
-"let g:syntastic_style_warning_symbol = '💩'
-
-"highlight link SyntasticErrorSign SignColumn
-"highlight link SyntasticWarningSign SignColumn
-"highlight link SyntasticStyleErrorSign SignColumn
-"highlight link SyntasticStyleWarningSign SignColumn
+"Replace 'F' and 'T' with bidirectional 2-character search"
+nmap F <Plug>(easymotion-bd-f2)
+xmap F <Plug>(easymotion-bd-f2)
+omap F <Plug>(easymotion-bd-f2)
+nmap T <Plug>(easymotion-bd-t2)
+xmap T <Plug>(easymotion-bd-t2)
+omap T <Plug>(easymotion-bd-t2)
 
 "------------------------------ THUMBTACK ------------------------------"
 so ~/.vim/thumbtack.vim

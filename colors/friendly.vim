@@ -1,1 +1,1 @@
-/Users/Daniel/developer/friendly/colors/friendly.vim
+/Users/dcapo/developer/friendly-colors/colors/friendly.vim
