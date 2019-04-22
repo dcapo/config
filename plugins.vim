@@ -22,8 +22,6 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 "A fancy status bar"
 Plugin 'vim-airline/vim-airline'
-"Themes for the Airline status bar"
-Plugin 'vim-airline/vim-airline-themes'
 "Autocompletion"
 Plugin 'Shougo/neocomplete.vim'
 "A huge reference collection of snippets for many languages"
@@ -31,7 +29,7 @@ Plugin 'honza/vim-snippets'
 "Quickly comment/uncomment lines"
 Plugin 'scrooloose/nerdcommenter'
 "Navigate through camelcase/snakecase words"
-Plugin 'bkad/CamelCaseMotion'
+" Plugin 'bkad/CamelCaseMotion'
 "animates page up/down so you can tell where the hell you are"
 Plugin 'terryma/vim-smooth-scroll'
 "Pretty welcome screen"
@@ -51,21 +49,17 @@ Plugin 'StanAngeloff/php.vim'
 "Enhanced syntax highlighting for Vue.js"
 Plugin 'posva/vim-vue'
 "Brings the % functionality to HTML tags"
-Plugin 'edsono/vim-matchit'
+Plugin 'tmhedberg/matchit'
 "Automatically update ctags on save--requires Python"
-Plugin 'craigemery/vim-autotag'
+" Plugin 'craigemery/vim-autotag'
 "A large library of language syntax improvements"
 Plugin 'sheerun/vim-polyglot'
 "My color scheme"
 Plugin 'dcapo/friendly-colors'
 "Create a sub mode for faster scrolling"
-Plugin 'kana/vim-submode'
+" Plugin 'kana/vim-submode'
 "Convert between case types; handle weird english pluralization suffixes"
 Plugin 'tpope/vim-abolish'
-"Enhanced syntax highlighting for Neo4j's Cypher"
-Plugin 'neo4j-contrib/cypher-vim-syntax'
-"Pasting with indentation adjusted to destination context"
-Plugin 'sickill/vim-pasta'
 "Highlight and/or erase bad whitespace at the end of lines"
 Plugin 'bitc/vim-bad-whitespace'
 "Quick navigation using two character search strings"
@@ -73,7 +67,7 @@ Plugin 'justinmk/vim-sneak'
 "Move selected text around sensibly"
 Plugin 'zirrostig/vim-schlepp'
 "Easy motion"
-Plugin 'easymotion/vim-easymotion'
+" Plugin 'easymotion/vim-easymotion'
 "Syntax highlighting for Twig"
 Plugin 'lumiliet/vim-twig'
 "Ack search tool"
@@ -82,6 +76,18 @@ Plugin 'mileszs/ack.vim'
 Plugin 'joonty/vdebug'
 "Quick file launching"
 Plugin 'wincent/command-t'
+"Project search & replace"
+Plugin 'skwp/greplace.vim'
+"Asynchronous linting engine"
+Plugin 'w0rp/ale'
+"Complement to vim-fugitive that enables GitHub extensions like Gbrowse"
+Plugin 'tpope/vim-rhubarb'
+"Pasting with indentation adjusted to destination context"
+Plugin 'sickill/vim-pasta'
+"Prettier JS formatting"
+Plugin 'prettier/vim-prettier'
+"Golang formatting"
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on

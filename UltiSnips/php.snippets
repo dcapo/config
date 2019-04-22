@@ -41,5 +41,8 @@ Route::post('${1}, function() {
 });
 endsnippet
 snippet el
-error_log(${1});
+error_log("DEBUG: ${1}");
+endsnippet
+snippet elo
+error_log('DEBUG: ' . print_r(${1}, true));
 endsnippet

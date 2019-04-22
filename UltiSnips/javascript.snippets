@@ -23,8 +23,183 @@ it('$1', () => {
 });
 endsnippet
 
+snippet ita "Mocha it() test - async"
+it('$1', async () => {
+	$2
+});
+endsnippet
+
 snippet desc "Mocha describe() block"
 describe('$1', () => {
 	$2
 });
+endsnippet
+
+snippet rfc
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+
+};
+
+const defaultProps = {
+
+};
+
+export default function ${1:ComponentName}() {
+	return (
+		<div>$1</div>
+	);
+}
+
+$1.propTypes = propTypes;
+$1.defaultProps = defaultProps;
+endsnippet
+
+snippet rcc
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+
+};
+
+const defaultProps = {
+
+};
+
+export default class ${1:ComponentName} extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	render() {
+		return (
+			<div>$1</div>
+		);
+	}
+}
+
+$1.propTypes = propTypes;
+$1.defaultProps = defaultProps;
+endsnippet
+
+snippet storybook
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import ${1:ComponentName} from './${2}';
+
+storiesOf('$1', module)
+	.addDecorator(withKnobs)
+	.add('Basic', () => (
+		<$1 />
+	));
+endsnippet
+
+snippet action
+import { action } from '@storybook/addon-actions';
+endsnippet
+
+snippet knobs
+import { withKnobs } from '@storybook/addon-knobs';
+endsnippet
+
+snippet react
+import React from 'react';
+endsnippet
+
+snippet tuit
+import { ${1:tpTokenName} } from '@thumbtack/thumbprint-tokens';
+endsnippet
+
+snippet styled
+import styled from 'styled-components';
+endsnippet
+
+snippet lodash
+import * as _ from 'lodash-es';
+endsnippet
+
+snippet sinon
+import sinon from 'sinon';
+endsnippet
+
+snippet proptypes
+import PropTypes from 'prop-types';
+endsnippet
+
+snippet classNames
+import classNames from 'classnames';
+endsnippet
+
+snippet faker
+import faker from 'faker';
+endsnippet
+
+snippet test
+import React from 'react';
+import { assert } from 'chai';
+import { shallow } from 'enzyme';
+endsnippet
+
+snippet tpSpacer
+import { tpSpacer } from '$0../../../utilities/styles/utility.es6';
+endsnippet
+
+snippet reduxModule
+// actions
+
+// action creators
+
+// reducer
+export default (state = {}, action) => {
+	switch (action.type) {
+		default:
+			return state;
+	}
+};
+endsnippet
+
+snippet connectImport
+import { connect } from 'react-redux';
+endsnippet
+
+snippet connect
+const mapStateToProps = (state) => {
+	return {
+
+	};
+};
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(${1:ComponentName});
+endsnippet
+
+snippet childrenPropType
+PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+endsnippet
+
+snippet tuic
+import { $0 } from '@thumbtack/thumbprint-react';
+endsnippet
+
+snippet tuii
+import { $0 } from '@thumbtack/thumbprint-icons';
+endsnippet
+
+snippet constructor
+constructor(props) {
+	super(props);
+	$0
+}
+endsnippet
+
+snippet gql
+import gql from 'graphql-tag';
 endsnippet
