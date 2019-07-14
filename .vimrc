@@ -300,7 +300,8 @@ nmap <Leader>; g_a;<esc>
 "Add a comma to the end of the line"
 nmap <Leader>, g_a,<esc>
 
-nmap n nzz
+"Center every incremental search"
+" nmap n nzz
 
 "===== Fugitive Git ====="
 nnoremap <Leader>gaa :Git add --all<cr>
