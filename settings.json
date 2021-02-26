@@ -1,0 +1,345 @@
+{
+    // "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 11,
+    "editor.rulers": [
+        100
+    ],
+    "window.title": "${activeEditorShort}${separator}${activeFolderMedium}${separator}${rootName}",
+    "workbench.tree.indent": 28,
+    "workbench.settings.editor": "json",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.quickSuggestionsDelay": 10,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.lineNumbers": "relative",
+    "editor.renderControlCharacters": false,
+    "editor.renderIndentGuides": false,
+    "editor.folding": true,
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "workbench.editor.highlightModifiedTabs": true,
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.filePath": "off",
+    "workbench.editor.labelFormat": "short",
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 100,
+        "editor.wrappingIndent": "indent"
+    },
+    "[plaintext]": {
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 80,
+        "editor.wrappingIndent": "none",
+        // "rewrap.wrappingColumn": 100,
+    },
+    "vim.textwidth": 100,
+    "vim.smartcase": false,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.scroll": 20,
+    "vim.foldfix": true,
+    "vim.sneak": false,
+    "vim.easymotion": true,
+    "vim.easymotionMarkerYOffset": 4,
+    "vim.easymotionMarkerFontWeight": "bold",
+    "vim.easymotionMarkerForegroundColorOneChar": "#000000",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "#000000",
+    "vim.easymotionMarkerForegroundColorTwoCharSecond": "#000000",
+    "vim.easymotionMarkerBackgroundColor": "#ffffff",
+    "vim.easymotionJumpToAnywhereRegex": "\\b[A-Za-z0-9]|[A-Za-z0-9]\\b|_.|#.|[a-z][A-Z]",
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["workbench.action.findInFiles"],
+        },
+        {
+            "before": ["s"],
+            "after": ["S"],
+        },
+        {
+            "before": ["Up"],
+            "commands": ["editor.action.moveLinesUpAction"],
+        },
+        {
+            "before": ["Down"],
+            "commands": ["editor.action.moveLinesDownAction"],
+        },
+        {
+            "before": ["Down"],
+            "commands": ["editor.action.moveLinesDownAction"],
+        },
+        {
+            "before": ["<leader>", "c", "c"],
+            "commands": ["editor.action.commentLine"],
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.files.save"],
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": ["workbench.action.gotoSymbol"],
+        },
+        {
+            "before": ["<leader>", "v"],
+            // "commands": ["workbench.action.newGroupRight"],
+            "commands": [":vsp"],
+        },
+        {
+            "before": ["<leader>", "o"],
+            "commands": ["workbench.action.quickOpen"],
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": [":wq"],
+        },
+        {
+            "before": ["<leader>", "d"],
+            "after": ["g", "d"],
+            // "commands": ["editor.action.revealDefinition"],
+        },
+        {
+            "before": ["<leader>", "r"],
+            "commands": ["references-view.find"],
+        },
+        {
+            "before": ["<leader>", "h"],
+            "after": ["C-w", "h"],
+            // "commands": ["workbench.action.focusPreviousGroup"],
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": ["C-w", "l"],
+            // "commands": ["workbench.action.focusNextGroup"],
+        },
+        {
+            "before": ["<leader>", "f"],
+            "after": ["v", "i", "w"],
+            "commands": ["workbench.action.findInFiles"],
+        },
+        {
+            "before": ["-"],
+            "commands": ["workbench.view.explorer"],
+        },
+        {
+            "before": ["u"],
+            "commands": ["undo"],
+        },
+        {
+            "before": ["U"],
+            "commands": ["redo"],
+        },
+        {
+            "before": ["+"],
+            "commands": ["workbench.action.increaseViewSize"],
+        },
+        {
+            "before": ["_"],
+            "commands": ["workbench.action.decreaseViewSize"],
+        },
+        {
+            "before": ["<leader>", "b", "="],
+            "commands": ["workbench.action.evenEditorWidths"],
+        },
+        {
+            "before": ["<leader>", "n", "t"],
+            "commands": ["workbench.action.toggleSidebarVisibility"],
+        },
+        {
+            "before": ["<leader>", ";"],
+            "after": ["g", "_", "a", ";", "<esc>"],
+        },
+        {
+            "before": ["<leader>", ","],
+            "after": ["g", "_", "a", ",", "<esc>"],
+        },
+        {
+            "before": ["<leader>", "a", "t"],
+            "commands": ["workbench.action.toggleActivityBarVisibility"],
+        },
+        {
+            "before": ["<leader>", "c", "c"],
+            "commands": ["editor.action.commentLine"],
+        },
+        {
+            "before": ["Up"],
+            "commands": [{
+                "command": "editorScroll",
+                "args": {
+                  "to": "up",
+                  "by": "line",
+                  "revealCursor": true,
+                  "value": 2
+                },
+            }]
+        },
+        {
+            "before": ["Down"],
+            "commands": [{
+                "command": "editorScroll",
+                "args": {
+                  "to": "down",
+                  "by": "line",
+                  "revealCursor": true,
+                  "value": 2
+                },
+            }]
+        },
+        {
+            "before": ["<leader>", "e", "w"],
+            "commands": ["editor.action.trimTrailingWhitespace"],
+        },
+        {
+            "before": ["<leader>", "t", "t"],
+            "commands": ["workbench.action.terminal.toggleTerminal"],
+        },
+        {
+            "before": ["<leader>", "g", "b", "l"],
+            "commands": ["gitlens.toggleFileBlame"],
+        },
+        {
+            "before": ["<leader>", "g", "s"],
+            "commands": ["workbench.view.scm"],
+        },
+        {
+            "before": ["<leader>", "g", "d"],
+            "commands": ["gitlens.diffWithPrevious"],
+        },
+        // {
+        //     "before": ["J"],
+        //     "commands": ["extension.vimSmoothScrollDown"],
+        // },
+        // {
+        //     "before": ["K"],
+        //     "commands": ["extension.vimSmoothScrollUp"],
+        // },
+        {
+            "before": ["s"],
+            "after": ["<leader>", "<leader>", "2", "s"],
+        },
+        {
+            "before": ["S"],
+            "after": ["<leader>", "<leader>", "2", "F"],
+        },
+        // {
+        //     "before": ["J"],
+        //     "after": ["<C-d>"],
+        // },
+        // {
+        //     "before": ["K"],
+        //     "after": ["<C-u>"],
+        // },
+        {
+            "before": ["J"],
+            "commands": [{
+                "command": "editorScroll",
+                "args": {
+                  "to": "down",
+                  "by": "line",
+                  "revealCursor": true,
+                  "value": 20
+                },
+            }]
+        },
+        {
+            "before": ["K"],
+            "commands": [{
+                "command": "editorScroll",
+                "args": {
+                  "to": "up",
+                  "by": "line",
+                  "revealCursor": true,
+                  "value": 20
+                },
+            }]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<esc>"],
+            "commands": [":nohl"],
+            "after": ["<esc>"],
+        },
+        {
+            "before": ["M"],
+            "after": ["J"],
+        },
+        // {
+        //     "before": ["N"],
+        //     "after": ["N", "z", "z"],
+        // },
+        // {
+        //     "before": ["n"],
+        //     "after": ["n", "z", "z"],
+        // },
+    ],
+    "workbench.editor.showTabs": false,
+    "workbench.activityBar.visible": false,
+    "terminal.external.osxExec": "iTerm2.app",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.blame.format": "${id} ${author}, ${ago}",
+    "workbench.colorCustomizations": {
+        "statusBar.background" : "#303030",
+        "editorRuler.foreground": "#333333",
+        "editor.lineHighlightBackground": "#20262b",
+        "statusBar.noFolderBackground" : "#20262b",
+        // "statusBar.debuggingBackground": "#511f1f",
+    },
+    "workbench.colorTheme": "Friendly",
+    "workbench.startupEditor": "none",
+    "statusbarerror.gutter.show": true,
+    "workbench.statusBar.feedback.visible": false,
+    "eslint.quiet": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "gitlens.codeLens.enabled": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false,
+    // "typescript.tsdk": "/usr/local/nvm/versions/node/v12.13.1/lib",
+    "typescript.tsserver.log": "verbose",
+    "go.formatTool": "goimports",
+    "go.delveConfig": {
+        "dlvLoadConfig": {
+            "maxStringLen": 2048,
+        },
+        "apiVersion": 2,
+    },
+}
+

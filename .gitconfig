@@ -1,0 +1,7 @@
+[push]
+	default = upstream
+[user]
+	name = Dan Capo
+	email = dcapo@thumbtack.com
+[pull]
+	rebase = true
