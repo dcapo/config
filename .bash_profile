@@ -120,10 +120,3 @@ export PATH=/Users/dcapo/developer/sbt/bin:$PATH
 export TT_TOPHAT_DIR="/Users/dcapo/Thumbtack/tophat"
 
 export PATH=/opt/thumbtack/dp-sdk/google-cloud-sdk/bin:$PATH
-export HADOOP_HOME="/opt/thumbtack/dp-sdk/hadoop"
-
-export SPARK_HOME="/opt/thumbtack/dp-sdk/spark"
-
-export SPARK_DIST_CLASSPATH="$(/opt/thumbtack/dp-sdk/hadoop/bin/hadoop classpath)"
-
-export PATH=$SPARK_HOME/bin:$PATH
